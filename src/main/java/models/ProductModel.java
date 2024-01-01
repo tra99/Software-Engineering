@@ -9,6 +9,7 @@ public class ProductModel {
     private String imageUrl;
     private String description;
 
+
     public ProductModel(String productCode, String productName, String originCountry,
                         double price, double cost, String imageUrl, String description) {
         this.productCode = productCode;
