@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Product</title>
+</head>
+<body>
+    <h1>Add Product Page</h1>
+    <form action="/TP05/task1" method="post">
+        <label for="productCode">Product Code:</label>
+        <input type="text" id="productCode" name="productCode"><br><br>
+
+        <label for="productName">Product Name:</label>
+        <input type="text" id="productName" name="productName"><br><br>
+
+        <label for="originCountry">Origin Country:</label>
+        <input type="text" id="originCountry" name="originCountry"><br><br>
+
+        <label for="price">Price:</label>
+        <input type="text" id="price" name="price"><br><br>
+
+        <label for="cost">Cost:</label>
+        <input type="text" id="cost" name="cost"><br><br>
+
+        <label for="image">Image URL:</label>
+        <input type="text" id="image" name="image"><br><br>
+
+        <label for="description">Description:</label><br>
+        <textarea id="description" name="description"></textarea><br><br>
+
+        <input type="submit" value="Add Product">
+    </form>
+</body>
+</html>
