@@ -8,8 +8,18 @@ public class ProductModel {
     private double cost;
     private String imageUrl;
     private String description;
+    private String edit;
 
 
+    public ProductModel(String edit) {
+        this.edit = edit;
+    }
+    public String getEdit() {
+        return edit;
+    }
+    public void setEdit(String edit) {
+        this.edit = edit;
+    }
     public ProductModel(String productCode, String productName, String originCountry,
                         double price, double cost, String imageUrl, String description) {
         this.productCode = productCode;

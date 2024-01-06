@@ -14,7 +14,7 @@ import models.ProductModel;
 @Controller
 public class product_controller {
     
-    private static List<ProductModel> productModels = new ArrayList<>(); // Static list to hold products
+    private static List<ProductModel> productModels = new ArrayList<>();
     
     @GetMapping("/TP05/task1")
     public String task1(Model model) {
@@ -43,40 +43,48 @@ public class product_controller {
         model.addAttribute("message", "Product added successfully!");
         return "redirect:/TP05/task1"; 
     }
+    private ProductModel getProductByCode(String productCode) {
+        for (ProductModel product : productModels) {
+            if (product.getProductCode().equals(productCode)) {
+                return product;
+            }
+        }
+        return null; 
+    }
+
+    @GetMapping("/update-product")
+    public String editProduct(@RequestParam("productCode") String productCode, Model model) {
+        // Fetch the product based on the product code and populate the model
+        ProductModel product = getProductByCode(productCode);
+        model.addAttribute("product", product);
+        return "edit-product"; // Assuming "edit-product" is your edit form view
+    }
+
+    @PostMapping("/update-product")
+    public String updateProduct(@RequestParam("productCode") String productCode,
+                                @RequestParam("productName") String productName,
+                                @RequestParam("originCountry") String originCountry,
+                                @RequestParam("price") double price,
+                                @RequestParam("cost") double cost,
+                                @RequestParam("imageUrl") String imageUrl,
+                                @RequestParam("description") String description,
+                                Model model) {
+
+        ProductModel productToUpdate = getProductByCode(productCode);
+
+        if (productToUpdate != null) {
+            // Update the product's information
+            productToUpdate.setProductName(productName);
+            productToUpdate.setOriginCountry(originCountry);
+            productToUpdate.setPrice(price);
+            productToUpdate.setCost(cost);
+            productToUpdate.setImageUrl(imageUrl);
+            productToUpdate.setDescription(description);
+            
+            model.addAttribute("message", "Product updated successfully!");
+            return "redirect:/TP05/task1";
+        } else {
+            return "redirect:/TP05/task1";
+        }
+    }
 }
-
-
-// @Controller
-
-// public class product_controller {
-
-//     @GetMapping("/TP05/task1")
-//     public String task1(Model model) {
-        
-//         // List<ProductModel>productModels=new ArrayList<>();
-//         // productModels.add(new ProductModel("P101", "Apple", "USA", 10, 10, "localImage.png", "Best organic apple from USA"));
-
-//         model.addAttribute("productModels", productModels);
-//         return "task1";
-//     }
-
-//     @GetMapping("/add-product")
-//     public String addProductPage() {
-//         return "add-product"; 
-//     }
-
-//     @PostMapping("/save-product")
-//     public String saveProduct(@RequestParam("productCode") String productCode,
-//                           @RequestParam("productName") String productName,
-//                           @RequestParam("originCountry") String originCountry,
-//                           @RequestParam("price") double price,
-//                           @RequestParam("cost") double cost,
-//                           @RequestParam("imageUrl") String imageUrl,
-//                           @RequestParam("description") String description,
-//                           Model model) {
-
-
-//         model.addAttribute("message", "Product added successfully!");
-//         return "redirect:/TP05/task1"; 
-//     }
-// }

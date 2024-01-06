@@ -27,6 +27,22 @@
         .add-product-btn:hover {
             background-color: #0056b3;
         }
+        .edit-button {
+            display: inline-block;
+            padding: 8px 16px;
+            margin: 2px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            border: 1px solid #007bff;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .edit-button:hover {
+            background-color: #0056b3;
+        }
+
     </style>
 </head>
 <body>
@@ -41,6 +57,7 @@
                 <th>Cost</th>
                 <th>Image URL</th>
                 <th>Description</th>
+                <th>Edit</th>
             </tr>
         </thead>
         <tbody>
@@ -52,6 +69,11 @@
                 <td th:text="${item.cost}"></td>
                 <td th:text="${item.imageUrl}"></td>
                 <td th:text="${item.description}"></td>
+                <td>
+                    <a th:href="@{/update-product(productCode=${item.productCode})}" class="edit-button">
+                        Edit
+                    </a>
+                </td>                
             </tr>
         </tbody>
     </table>
