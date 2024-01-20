@@ -7,7 +7,7 @@ const AuthForm = ({ type, onSubmit, onSwitchType }) => {
   const [formData, setFormData] = useState({
     username: '',
     password: '',
-    email: '', // Add email field
+    email: '',
   });
 
   const handleChange = (e) => {
@@ -48,7 +48,7 @@ const AuthForm = ({ type, onSubmit, onSwitchType }) => {
            onChange={handleChange}
          />
        </label>
-       {type === 'signup' && (  // Render email field only for signup
+       {type === 'signup' && ( 
          <div>
            <label>
              Email:
@@ -66,17 +66,17 @@ const AuthForm = ({ type, onSubmit, onSwitchType }) => {
        {type === 'login' && (
          <p>
            Don't have an account?{' '}
-           <button type="button" onClick={onSwitchType}>
+           <a href='./SignUp'><button type="button" onClick={{onSwitchType}}>
              Sign Up
-           </button>
+           </button></a>
          </p>
        )}
        {type === 'signup' && (
          <p>
           Already have an account?{' '}
-          <button type="button" onClick={onSwitchType}>
+          <a href='./Login'><button type="button" onClick={onSwitchType}>
              Login
-           </button>
+           </button></a>
          </p>
       )}
      </form>

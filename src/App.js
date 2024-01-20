@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import LoginForm from './Login';
 import SignUpForm from './SignUp';
-
+import Home from './HomePage';
 import './App.css';
 
 const App = () => {
@@ -19,6 +19,7 @@ const App = () => {
           <Route path="/login" element={<LoginForm onSwitchType={handleSwitchType} />} />
           <Route path="/signup" element={<SignUpForm onSwitchType={handleSwitchType} />} />
           <Route path="/" element={<LoginForm onSwitchType={handleSwitchType} />} />
+          <Route path="/home" element={<Home />} />
         </Routes>
       </Router>
     </div>
