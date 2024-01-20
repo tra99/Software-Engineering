@@ -7,7 +7,9 @@ import SE.GIC.TP06.entity.MyUser;
 import SE.GIC.TP06.service.UserService;
 import java.util.List;
 
+
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/users")
 public class UserController {
 
