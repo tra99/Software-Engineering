@@ -4,6 +4,7 @@ import LoginForm from './Login';
 import SignUpForm from './SignUp';
 import Home from './HomePage';
 import './App.css';
+import AddProduct from './add-product';
 
 const App = () => {
   const [authType, setAuthType] = useState('login');
@@ -20,6 +21,7 @@ const App = () => {
           <Route path="/signup" element={<SignUpForm onSwitchType={handleSwitchType} />} />
           <Route path="/" element={<LoginForm onSwitchType={handleSwitchType} />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/add-product" element={<AddProduct />} />
         </Routes>
       </Router>
     </div>

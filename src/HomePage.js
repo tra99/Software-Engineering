@@ -1,24 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import "./Home.css"
+import React, { useEffect, useState } from 'react';
 
 const ProductList = () => {
   const [productModels, setProductModels] = useState([]);
 
   useEffect(() => {
-    // Fetch data from the API when the component mounts
     const fetchData = async () => {
       try {
         const response = await fetch('http://localhost:8000/api/admin/product/list');
         const data = await response.json();
-        setProductModels(data); 
-        console.log(response)
+        setProductModels(data);
+        console.log(response);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
 
     fetchData();
-  }, []); // Empty dependency array ensures that the effect runs only once
+  }, []);
 
   return (
     <div>
@@ -63,5 +61,3 @@ const ProductList = () => {
 };
 
 export default ProductList;
-
-
