@@ -12,11 +12,11 @@ import java.util.Optional;
 import java.time.LocalDateTime;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin("http://localhost:3000")
 @RequestMapping("/api/orders")
 public class OrderController {
 
-    @Autowired
+    @Autowired 
     private OrderService orderService;
 
     @GetMapping("/list")
